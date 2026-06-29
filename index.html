@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Sujith PS — Senior Android Developer. 10+ years building scalable Kotlin and Jetpack Compose apps across mobile, TV and foldables. Vitality, BT/EE, Infosys." />
+<title>Sujith PS — Senior Android Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --surface:#0F1511;--surface-1:#161D18;--surface-2:#1B231D;--surface-3:#202A22;--surface-4:#243027;
+    --outline:#2C3A30;--outline-soft:#232E27;
+    --primary:#7CE0A6;--primary-strong:#3DDC84;--on-primary:#053920;
+    --primary-container:#0E5536;--on-primary-container:#9BF6BE;
+    --tertiary:#7FD0C4;
+    --on-surface:#E2E8E3;--on-surface-var:#9DAAA0;--on-surface-dim:#7C8980;
+    --mono:'JetBrains Mono',monospace;--display:'Outfit',sans-serif;--body:'Roboto',sans-serif;
+    --maxw:1100px;
+    --r-sm:12px;--r-md:16px;--r-lg:24px;--r-full:999px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--surface);color:var(--on-surface);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(820px 460px at 84% -8%,rgba(61,220,132,.12),transparent 60%),radial-gradient(620px 460px at -5% 12%,rgba(127,208,196,.07),transparent 55%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:rgba(61,220,132,.28)}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(15,21,17,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--outline-soft)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:-.2px}
+  .brand .logo{width:26px;height:26px;border-radius:var(--r-sm);background:linear-gradient(135deg,var(--primary-strong),var(--tertiary));display:grid;place-items:center;color:var(--on-primary);font-family:var(--mono);font-weight:700;font-size:14px}
+  .nav-links{display:flex;gap:6px}
+  .nav-links a{color:var(--on-surface-var);font-family:var(--display);font-weight:500;font-size:14px;padding:8px 16px;border-radius:var(--r-full);transition:all .2s}
+  .nav-links a:hover{color:var(--on-surface);background:var(--surface-2)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  header{padding:72px 0 56px}
+  .chip{display:inline-flex;align-items:center;gap:9px;background:var(--primary-container);color:var(--on-primary-container);font-family:var(--mono);font-size:12.5px;font-weight:500;padding:8px 16px;border-radius:var(--r-full);margin-bottom:26px;border:1px solid rgba(155,246,190,.18)}
+  .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--primary-strong);box-shadow:0 0 10px var(--primary-strong);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,6.4vw,72px);line-height:1.0;letter-spacing:-2px}
+  h1 .grad{background:linear-gradient(120deg,var(--primary-strong),var(--tertiary));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .tagline{font-family:var(--display);color:var(--on-surface-var);font-weight:700;font-size:clamp(20px,3vw,32px);letter-spacing:-.6px;margin-top:16px}
+  .lede{max-width:720px;color:var(--on-surface-var);font-size:clamp(14px,1.4vw,16px);margin-top:22px}
+  .lede b{color:var(--on-surface);font-weight:600}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+  .btn{font-family:var(--display);font-size:13.5px;font-weight:600;padding:11px 20px;border-radius:var(--r-full);transition:all .2s;display:inline-flex;align-items:center;gap:9px;border:1px solid transparent;cursor:pointer}
+  .btn.filled{background:var(--primary);color:var(--on-primary)}
+  .btn.filled:hover{box-shadow:0 6px 22px rgba(61,220,132,.3);transform:translateY(-2px)}
+  .btn.tonal{background:var(--surface-3);color:var(--on-surface)}
+  .btn.tonal:hover{background:var(--surface-4);transform:translateY(-2px)}
+  .btn.outlined{border-color:var(--outline);color:var(--on-surface)}
+  .btn.outlined:hover{border-color:var(--primary);background:var(--surface-2)}
+  .socials{display:flex;gap:12px;margin-top:20px}
+  .social{width:38px;height:38px;border-radius:var(--r-full);border:1px solid var(--outline);display:grid;place-items:center;color:var(--on-surface-var);transition:all .2s}
+  .social:hover{color:var(--on-primary);background:var(--primary);border-color:var(--primary);transform:translateY(-2px)}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+  .stat{background:var(--surface-2);border:1px solid var(--outline-soft);border-radius:var(--r-lg);padding:24px 22px}
+  .stat .num{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.6vw,40px);letter-spacing:-1px}
+  .stat .num .u{color:var(--primary-strong)}
+  .stat .lbl{font-family:var(--mono);font-size:11.5px;color:var(--on-surface-dim);margin-top:8px}
+  @media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  .techgrid{margin-top:54px;display:flex;flex-wrap:wrap;gap:14px;max-width:920px}
+  .tchip{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:13.5px;color:var(--on-surface);background:var(--surface-2);border:1px solid var(--outline);padding:10px 17px;border-radius:var(--r-full);white-space:nowrap;animation:glowpulse 3.4s ease-in-out infinite}
+  .tchip img{width:18px;height:18px;display:block}
+  .tchip:nth-child(3n+2){animation-delay:.5s}
+  .tchip:nth-child(3n+3){animation-delay:1s}
+  .tchip:nth-child(4n+1){animation-delay:1.6s}
+  @keyframes glowpulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(61,220,132,0);border-color:var(--outline)}
+    50%{box-shadow:0 0 18px 1px rgba(61,220,132,.22);border-color:rgba(61,220,132,.5)}
+  }
+  @media (prefers-reduced-motion:reduce){.tchip{animation:none}}
+  @media(max-width:640px){.tchip{font-size:14px;padding:11px 16px}.tchip img{width:18px;height:18px}}
+
+  section{padding:80px 0}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:44px}
+  .sec-icon{width:40px;height:40px;border-radius:var(--r-sm);background:var(--surface-3);display:grid;place-items:center;font-family:var(--mono);color:var(--primary-strong);font-size:15px;border:1px solid var(--outline)}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:clamp(24px,3.2vw,34px);letter-spacing:-.8px}
+  .sec-rule{flex:1;height:1px;background:var(--outline-soft)}
+
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:36px}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:28px}}
+  .about p{color:var(--on-surface-var);margin-bottom:18px;font-size:16px}
+  .about p b{color:var(--on-surface);font-weight:600}
+  .codecard{font-family:var(--mono);font-size:13px;background:var(--surface-2);border:1px solid var(--outline);border-radius:var(--r-lg);padding:24px;line-height:1.9;align-self:start}
+  .codecard .bar{display:flex;gap:7px;margin-bottom:16px}
+  .codecard .bar i{width:11px;height:11px;border-radius:50%;display:block}
+  .codecard .c{color:var(--on-surface-dim)}
+  .codecard .k{color:var(--primary-strong)}
+  .codecard .v{color:var(--tertiary)}
+  .codecard .p{color:#E5C07B}
+
+  .job{background:var(--surface-1);border:1px solid var(--outline-soft);border-radius:var(--r-lg);padding:28px;margin-bottom:18px;transition:all .2s}
+  .job:hover{border-color:var(--primary);background:var(--surface-2)}
+  .job-head{display:flex;align-items:center;gap:18px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--outline-soft)}
+  .job-logo{width:72px;height:72px;border-radius:var(--r-md);background:#fff;display:grid;place-items:center;overflow:hidden;flex-shrink:0;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+  .job-logo img{width:100%;height:100%;object-fit:cover;display:block}
+  .job-logo.contain img{object-fit:contain;padding:9px}
+  .job-headtext{flex:1;min-width:0}
+  .job-co{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.4px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:3px}
+  .job-role{color:var(--primary-strong);font-size:14.5px;font-weight:600;font-family:var(--display)}
+  .job-when{font-family:var(--mono);font-size:12.5px;color:var(--on-surface-dim);white-space:nowrap;text-align:right}
+  @media(max-width:600px){.job-head{flex-wrap:wrap}.job-when{width:100%;text-align:left;order:3}}
+  .job-via{font-family:var(--mono);font-size:12px;color:var(--on-surface-dim);margin:-6px 0 14px}
+  .job ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .job li{color:var(--on-surface-var);font-size:14.5px;padding-left:22px;position:relative}
+  .job li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--primary-strong);opacity:.7}
+  .job li b{color:var(--on-surface);font-weight:600}
+  .tag{font-family:var(--mono);font-size:11px;color:var(--on-primary-container);background:var(--primary-container);border-radius:var(--r-full);padding:3px 11px;font-weight:500}
+
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media(max-width:860px){.proj-grid{grid-template-columns:1fr}}
+  .proj{background:var(--surface-1);border:1px solid var(--outline-soft);border-radius:var(--r-lg);padding:26px;transition:all .25s;display:flex;flex-direction:column}
+  .proj:hover{border-color:var(--primary);transform:translateY(-4px);background:var(--surface-2)}
+  .proj-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+  .proj-name{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.3px}
+  .proj-link{font-family:var(--mono);font-size:11px;color:var(--on-primary);background:var(--primary);white-space:nowrap;padding:6px 13px;border-radius:var(--r-full);transition:all .2s;font-weight:600}
+  .proj-link:hover{box-shadow:0 4px 14px rgba(61,220,132,.32)}
+  .proj-stack{font-family:var(--mono);font-size:11.5px;color:var(--tertiary);margin-bottom:16px}
+  .proj ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:auto}
+  .proj li{color:var(--on-surface-var);font-size:13.5px;padding-left:16px;position:relative}
+  .proj li::before{content:"–";position:absolute;left:0;color:var(--on-surface-dim)}
+  .proj li b{color:var(--on-surface);font-weight:600}
+  /* featured project cards with decorative device */
+  .proj.featured{grid-column:1 / -1;flex-direction:row;align-items:center;gap:32px}
+  .proj.featured .proj-body{flex:1;min-width:0}
+  @media(max-width:760px){.proj.featured{flex-direction:column;align-items:stretch}}
+  .device{flex-shrink:0;width:172px;height:344px;border-radius:30px;background:#0a0d0b;border:7px solid #20271f;box-shadow:0 18px 50px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.04);position:relative;overflow:hidden;display:grid}
+  .device::before{content:"";position:absolute;top:11px;left:50%;transform:translateX(-50%);width:54px;height:6px;border-radius:6px;background:#000;z-index:3}
+  .device .screen{position:absolute;inset:0;display:flex;flex-direction:column;padding:30px 16px 18px}
+  .device .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .device .appbar{display:flex;align-items:center;gap:8px;margin-bottom:16px}
+  .device .applogo{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;overflow:hidden;background:#fff}
+  .device .applogo img{width:100%;height:100%;object-fit:cover}
+  .device .apptitle{font-family:var(--display);font-weight:700;font-size:13px;color:#fff}
+  .device .row{height:10px;border-radius:5px;margin-bottom:9px;opacity:.9}
+  .device .card-mock{border-radius:14px;padding:13px;margin-bottom:12px}
+  .device .pill{height:22px;border-radius:11px;margin-top:auto}
+  .device.glow{animation:devglow 4s ease-in-out infinite}
+  @keyframes devglow{0%,100%{box-shadow:0 18px 50px rgba(0,0,0,.5)}50%{box-shadow:0 18px 60px rgba(61,220,132,.18),0 18px 50px rgba(0,0,0,.5)}}
+  @media (prefers-reduced-motion:reduce){.device.glow{animation:none}}
+
+  .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:760px){.skills-grid{grid-template-columns:1fr}}
+  .skill{background:var(--surface-1);border:1px solid var(--outline-soft);border-radius:var(--r-md);padding:18px 20px}
+  .skill .cat{font-family:var(--mono);font-size:11.5px;color:var(--primary-strong);margin-bottom:11px;letter-spacing:.3px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chips span{font-size:12.5px;color:var(--on-surface-var);background:var(--surface-3);border:1px solid var(--outline-soft);padding:5px 12px;border-radius:var(--r-full)}
+
+  .contact{text-align:center;padding:92px 0 104px}
+  .contact h2{font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,52px);letter-spacing:-1.4px;margin-bottom:18px}
+  .contact .grad{background:linear-gradient(120deg,var(--primary-strong),var(--tertiary));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .contact p{color:var(--on-surface-var);max-width:520px;margin:0 auto 30px}
+  .contact .cta-row{justify-content:center}
+  .edu{display:inline-flex;align-items:center;gap:10px;margin-top:46px;font-family:var(--mono);font-size:12.5px;color:var(--on-surface-dim);background:var(--surface-1);border:1px solid var(--outline-soft);padding:12px 20px;border-radius:var(--r-full)}
+  .edu b{color:var(--on-surface-var)}
+
+  footer{border-top:1px solid var(--outline-soft);padding:26px 0;text-align:center;font-family:var(--mono);font-size:12px;color:var(--on-surface-dim)}
+  footer .v{color:var(--primary-strong)}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+  :focus-visible{outline:2px solid var(--primary-strong);outline-offset:3px;border-radius:6px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand"><span class="logo">S</span>Sujith PS</div>
+    <div class="nav-links">
+      <a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Stack</a><a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="chip"><span class="dot"></span>Open to Senior Android roles · United Kingdom</div>
+    <h1>Sujith <span class="grad">PS</span></h1>
+    <div class="tagline">Senior Android Developer, engineered for scale.</div>
+    <p class="lede">Senior Android Developer with <b>10+ years</b> building scalable, high-performance apps in <b>Kotlin and Jetpack Compose</b> across mobile, tablet, foldable and Android TV — with proven delivery across <b>OTT, health, retail and logistics</b>.<br><br>My focus is the craft that makes products durable: <b>clean architecture, modularisation, testing and CI/CD</b> — and raising the engineering bar across the teams I work in.</p>
+    <div class="cta-row">
+      <a class="btn filled" href="mailto:ps.sujith@outlook.com">ps.sujith@outlook.com</a>
+      <a class="btn tonal" href="sujith_resume.pdf" download>Download CV ↓</a>
+    </div>
+    <div class="socials">
+      <a class="social" href="https://linkedin.com/in/pssujith" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+      </a>
+      <a class="social" href="https://github.com/ps-sujith" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg>
+      </a>
+      <a class="social" href="https://medium.com/@ps.sujith" target="_blank" rel="noopener" aria-label="Medium">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.86 0-3.38-2.88-3.38-6.42s1.52-6.42 3.38-6.42 3.38 2.88 3.38 6.42zM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+      </a>
+    </div>
+    <div class="techgrid" id="techgrid">
+      <span class="tchip"><img src="https://cdn.simpleicons.org/kotlin" alt="" onerror="this.style.display='none'"/>Kotlin</span>
+      <span class="tchip"><img src="https://cdn.simpleicons.org/openjdk/E76F00" alt="" onerror="this.style.display='none'"/>Java</span>
+      <span class="tchip"><img src="https://cdn.simpleicons.org/jetpackcompose" alt="" onerror="this.style.display='none'"/>Jetpack Compose</span>
+      <span class="tchip"><img src="https://cdn.simpleicons.org/android" alt="" onerror="this.style.display='none'"/>Android</span>
+      <span class="tchip"><img src="https://cdn.simpleicons.org/materialdesign" alt="" onerror="this.style.display='none'"/>Material 3</span>
+      <span class="tchip"><img src="https://cdn.simpleicons.org/firebase" alt="" onerror="this.style.display='none'"/>Firebase</span>
+      <span class="tchip"><img src="https://cdn.simpleicons.org/graphql" alt="" onerror="this.style.display='none'"/>GraphQL</span>
+      <span class="tchip"><img src="https://cdn.simpleicons.org/dart" alt="" onerror="this.style.display='none'"/>Dart</span>
+      <span class="tchip"><img src="https://cdn.simpleicons.org/flutter" alt="" onerror="this.style.display='none'"/>Flutter</span>
+      <span class="tchip"><img src="https://cdn.simpleicons.org/gradle" alt="" onerror="this.style.display='none'"/>Gradle</span>
+      <span class="tchip"><img src="https://cdn.simpleicons.org/git" alt="" onerror="this.style.display='none'"/>Git</span>
+      <span class="tchip"><img src="https://cdn.simpleicons.org/github/FFFFFF" alt="" onerror="this.style.display='none'"/>GitHub</span>
+      <span class="tchip"><img src="https://cdn.simpleicons.org/jira" alt="" onerror="this.style.display='none'"/>Jira</span>
+      <span class="tchip"><img src="https://cdn.simpleicons.org/sonarqube" alt="" onerror="this.style.display='none'"/>SonarQube</span>
+      <span class="tchip"><img src="https://cdn.simpleicons.org/sqlite" alt="" onerror="this.style.display='none'"/>Room / SQLite</span>
+    </div>
+  </div>
+</header>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-icon">02</span><span class="sec-title">Experience</span><span class="sec-rule"></span></div>
+
+    <div class="job reveal">
+      <div class="job-head">
+        <div class="job-logo"><img src="logos/vitality.png" alt="Vitality logo"/></div>
+        <div class="job-headtext">
+          <div class="job-co">Vitality <span class="tag">Bournemouth, UK</span></div>
+          <div class="job-role">Senior Android Developer</div>
+        </div>
+        <div class="job-when">Apr 2025 — Present</div>
+      </div>
+      <ul>
+        <li><b>Drove the Compose-first modernisation</b> — migrating XML to Jetpack Compose, rebuilding navigation, modularising under Clean Architecture / MVVM.</li>
+        <li><b>Championed engineering standards</b> in a 14-engineer pod — Kotlin conventions, SonarQube/Detekt gates, and 100+ PR reviews.</li>
+        <li>Integrated <b>Health Connect</b> and the <b>Samsung Health SDK</b>, syncing wearable activity into the rewards engine.</li>
+        <li>Owned app observability via <b>Firebase and Dynatrace</b>, triaging and escalating production issues.</li>
+      </ul>
+    </div>
+
+    <div class="job reveal">
+      <div class="job-head">
+        <div class="job-logo"><img src="logos/bt.jpg" alt="BT logo"/></div>
+        <div class="job-headtext">
+          <div class="job-co">BT Group <span class="tag">Contract · Belfast, UK</span></div>
+          <div class="job-role">Senior Android Engineer</div>
+        </div>
+        <div class="job-when">Aug 2020 — Oct 2024</div>
+      </div>
+      <div class="job-via">via Infosys Limited (Aug 2018 – May 2024) · Code Experts Ltd (May – Oct 2024)</div>
+      <ul>
+        <li><b>Led the rebranding of BT TV to EE TV</b>, delivering a new design and streaming experience with cross-functional teams.</li>
+        <li><b>Led the Java-to-Kotlin migration</b> with Jetpack and Modular Clean Architecture, lifting streaming performance by 5%.</li>
+        <li>Built POCs — bespoke UI for Ashes Cricket 2021 and <b>Media3</b> support for foldable/flip devices.</li>
+        <li><b>Owned streaming quality and security</b> — Crashlytics, Splunk, Conviva, with DRM content protection and accessibility.</li>
+      </ul>
+    </div>
+
+    <div class="job reveal">
+      <div class="job-head">
+        <div class="job-logo"><img src="logos/infosys.jpg" alt="Infosys logo"/></div>
+        <div class="job-headtext">
+          <div class="job-co">Infosys Limited <span class="tag">Trivandrum, India</span></div>
+          <div class="job-role">Technology Analyst</div>
+        </div>
+        <div class="job-when">Aug 2018 — Aug 2020</div>
+      </div>
+      <ul>
+        <li>Built native Android apps across <b>mobile, tablet, Fire TV, Android TV and Chromecast</b> for UK, US and Australian clients (onsite in Australia).</li>
+        <li>Developed Infosys' in-house OTT app (VOD, ExoPlayer) and contributed cross-platform features via <b>Flutter FFI and Dart</b>.</li>
+        <li>Worked with Figma and Zeplin for design hand-off and UI implementation.</li>
+      </ul>
+    </div>
+
+    <div class="job reveal">
+      <div class="job-head">
+        <div class="job-logo contain"><img src="logos/reubro.png" alt="Reubro logo"/></div>
+        <div class="job-headtext">
+          <div class="job-co">Reubro International <span class="tag">Cochin, India</span></div>
+          <div class="job-role">Programmer — Android</div>
+        </div>
+        <div class="job-when">Dec 2015 — Jun 2018</div>
+      </div>
+      <ul>
+        <li>Built embedded Android apps (<b>WebSocket, Camera, BLE</b>) in Java, migrated SQLite to Room, and owned wireframes, client interaction and estimation.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-icon">03</span><span class="sec-title">Projects</span><span class="sec-rule"></span></div>
+    <div class="proj-grid">
+
+      <div class="proj featured reveal">
+        <div class="device glow" aria-hidden="true">
+          <img class="shot" src="logos/vitality-screen.webp" alt="Vitality Member App screenshot"/>
+        </div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <div class="proj-name">Vitality Member App</div>
+            <a class="proj-link" href="https://play.google.com/store/apps/details?id=uk.co.vitality.memberapp&hl=en_GB" target="_blank" rel="noopener">Play Store ↗</a>
+          </div>
+          <div class="proj-stack">Compose · Kotlin · GraphQL · Health Connect · SonarQube</div>
+          <ul>
+            <li>Led feature modularisation and the <b>Compose-first migration</b> under Clean Architecture / MVVM.</li>
+            <li>Built a <b>white-label UI component library</b> from inconsistent designs.</li>
+            <li>Resolved <b>3,000+ SonarQube issues</b> across quality, security and maintainability.</li>
+            <li>Unified integration and voucher generation for <b>30+ partners</b>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="proj featured reveal">
+        <div class="device glow" aria-hidden="true">
+          <img class="shot" src="logos/eetv-screen.webp" alt="EE TV app screenshot"/>
+        </div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <div class="proj-name">EE TV</div>
+            <a class="proj-link" href="https://play.google.com/store/apps/details?id=com.bt.tve.otg&hl=en_GB" target="_blank" rel="noopener">Play Store ↗</a>
+          </div>
+          <div class="proj-stack">Java · Kotlin · JNI/NDK · Media3 · DRM · HLS · Conviva · C++</div>
+          <ul>
+            <li>Led migration of Java to Kotlin and AsyncTask to Coroutines on an app with <b>75,000+ concurrent streaming users</b>.</li>
+            <li>Built a custom <b>"Ashes Timeline"</b> feature with bespoke views and animations.</li>
+            <li>Adapted the app for <b>foldable devices</b> following Material 3.</li>
+            <li>Built a companion <b>Flutter app (Dart FFI)</b> to share features across company apps.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="proj featured reveal">
+        <div class="device glow" aria-hidden="true">
+          <div class="screen" style="background:linear-gradient(165deg,#067a5f,#024a39)">
+            <div class="appbar"><span class="applogo"><img src="logos/toll.jpg" alt=""/></span><span class="apptitle">Toll</span></div>
+            <div class="card-mock" style="background:rgba(255,255,255,.14);display:grid;place-items:center;height:96px;margin-bottom:14px">
+              <svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity=".92"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M15 15h2v2h-2zM19 15h2M15 19h2v2M19 19h2"/></svg>
+            </div>
+            <div class="card-mock" style="background:rgba(255,255,255,.14);display:flex;align-items:center;gap:9px"><span style="width:26px;height:26px;border-radius:7px;background:var(--primary-strong);flex-shrink:0"></span><div style="flex:1"><div class="row" style="width:70%;background:rgba(255,255,255,.85)"></div><div class="row" style="width:45%;background:rgba(255,255,255,.4);margin-bottom:0"></div></div></div>
+            <div class="pill" style="background:var(--primary-strong);width:100%"></div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <div class="proj-name">Toll Logistics Delivery</div>
+          </div>
+          <div class="proj-stack">Kotlin · Precomm Logistics SDK · RxJava · Dagger</div>
+          <ul>
+            <li>Built and customised features on the <b>Precomm Logistics SDK</b> for Zebra Android devices, including <b>QR scanning and geo-fencing</b>.</li>
+            <li>Resolved production issues to maintain reliability across field-delivery operations.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-icon">04</span><span class="sec-title">Stack</span><span class="sec-rule"></span></div>
+    <div class="skills-grid">
+      <div class="skill reveal"><div class="cat">// languages</div><div class="chips"><span>Kotlin</span><span>Java</span><span>Dart</span><span>C++</span></div></div>
+      <div class="skill reveal"><div class="cat">// architecture</div><div class="chips"><span>MVVM</span><span>MVI</span><span>Clean Architecture</span><span>SOLID</span><span>Modularisation</span></div></div>
+      <div class="skill reveal"><div class="cat">// ui</div><div class="chips"><span>Jetpack Compose</span><span>Material 3</span><span>XML</span><span>Coil</span></div></div>
+      <div class="skill reveal"><div class="cat">// jetpack & async</div><div class="chips"><span>Architecture Components</span><span>Coroutines</span><span>Flow</span><span>RxJava</span></div></div>
+      <div class="skill reveal"><div class="cat">// di & storage</div><div class="chips"><span>Dagger</span><span>Hilt</span><span>Koin</span><span>Room</span><span>DataStore</span></div></div>
+      <div class="skill reveal"><div class="cat">// testing</div><div class="chips"><span>JUnit</span><span>Espresso</span><span>Compose Test</span><span>Mockito</span><span>TDD</span></div></div>
+      <div class="skill reveal"><div class="cat">// networking</div><div class="chips"><span>Retrofit</span><span>REST</span><span>Apollo GraphQL</span><span>JNI</span><span>NDK</span></div></div>
+      <div class="skill reveal"><div class="cat">// streaming</div><div class="chips"><span>ExoPlayer</span><span>Media3</span><span>DASH</span><span>DAI</span><span>HLS</span><span>Widevine DRM</span></div></div>
+      <div class="skill reveal"><div class="cat">// health & devices</div><div class="chips"><span>Health Connect</span><span>Samsung Health</span><span>Fire TV</span><span>Android TV</span><span>Chromecast</span></div></div>
+      <div class="skill reveal"><div class="cat">// quality & observability</div><div class="chips"><span>SonarQube</span><span>Detekt</span><span>Ktlint</span><span>Firebase</span><span>Crashlytics</span><span>Dynatrace</span><span>Conviva</span><span>Splunk</span></div></div>
+      <div class="skill reveal"><div class="cat">// devops</div><div class="chips"><span>GitHub</span><span>JIRA</span><span>Azure CI/CD</span><span>Gradle</span><span>Bitrise</span></div></div>
+      <div class="skill reveal"><div class="cat">// design</div><div class="chips"><span>Figma</span><span>Zeplin</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <h2>Let's build the <span class="grad">next thing</span>.</h2>
+    <p>Open to senior Android opportunities in the UK. The fastest way to reach me is email.</p>
+    <div class="cta-row">
+      <a class="btn filled" href="mailto:ps.sujith@outlook.com">ps.sujith@outlook.com</a>
+      <a class="btn tonal" href="sujith_resume.pdf" download>Download CV ↓</a>
+    </div>
+    <div class="socials" style="justify-content:center">
+      <a class="social" href="https://linkedin.com/in/pssujith" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+      </a>
+      <a class="social" href="https://github.com/ps-sujith" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg>
+      </a>
+      <a class="social" href="https://medium.com/@ps.sujith" target="_blank" rel="noopener" aria-label="Medium">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.86 0-3.38-2.88-3.38-6.42s1.52-6.42 3.38-6.42 3.38 2.88 3.38 6.42zM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+      </a>
+    </div>
+    <div><div class="edu"><b>B.Tech, Electronics &amp; Communication Engineering</b> · TKM Institute of Technology · 2011–2015</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span class="v">val</span> nextChapter = SeniorAndroidDeveloper(openTo = <span class="v">"opportunities"</span>) · © 2026 Sujith PS</div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*60)+'ms';io.observe(el);});
+</script>
+</body>
+</html>
